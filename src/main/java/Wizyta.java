@@ -1,17 +1,41 @@
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Entity
+@Table(name = "WIZYTY")
+@SequenceGenerator(name = "SEQ_WIZ_ID", sequenceName = "SEQ_WIZ_ID")
 public class Wizyta implements Serializable {
 
     private static final long serialVersionUID = -1461418187899599870L;
 
+    @Id
+    @Column(name = "WIZ_ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_WIZ_ID")
     private Long id;
 
+    @OneToOne
+    @JoinColumn(name = "WIZ_PAC_ID", referencedColumnName = "PAC_ID")
     private Pacjent pacjent;
 
+    @ManyToOne
+    @JoinColumn(name = "WIZ_LEK_ID", referencedColumnName = "LEK_ID")
     private Lekarz lekarz;
+
+    @OneToMany(mappedBy = "wizyta", cascade = CascadeType.PERSIST)
+    private List<Zabieg> zabiegi = new ArrayList<Zabieg>();
+
+    @OneToMany(mappedBy = "wizyta", cascade = CascadeType.PERSIST)
+    private List<Usluga> uslugi = new ArrayList<Usluga>();
+
+    @Column(name = "WIZ_DATA")
+    @Temporal(TemporalType.DATE)
+    private Date data;
+
+    @Column(name = "WIZ_TYP")
+    private String typ;
 
     public Long getId() {
         return id;
@@ -20,14 +44,6 @@ public class Wizyta implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
-    private List<Zabieg> zabiegi = new ArrayList<Zabieg>();
-
-    private List<Usluga> uslugi = new ArrayList<Usluga>();
-
-    private Date data;
-
-    private String typ;
 
     public Pacjent getPacjent() {
         return pacjent;

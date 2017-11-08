@@ -1,19 +1,33 @@
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "USLUGI")
+@SequenceGenerator(name = "SEQ_USL_ID", sequenceName = "SEQ_USL_ID")
 public class Usluga implements Serializable {
 
     private static final long serialVersionUID = -5795062461768031102L;
 
+    @Id
+    @Column(name = "USL_ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_USL_ID")
     private Long id;
 
+    @OneToOne
+    @JoinColumn(name = "USL_CEN_ID", referencedColumnName = "CEN_ID")
     private Cennik cennik;
 
+    @ManyToOne
+    @JoinColumn(name = "USL_WIZ_ID", referencedColumnName = "WIZ_ID")
     private Wizyta wizyta;
 
+    @Column(name = "USL_CENA")
     private Double cena;
 
+    @Column(name = "USL_OPIS")
     private String opis;
 
+    @Column(name = "USL_RABAT")
     private Double rabat;
 
     public Long getId() {
