@@ -1,7 +1,7 @@
+package model;
+
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Wizyta implements Serializable {
 
@@ -21,9 +21,9 @@ public class Wizyta implements Serializable {
         this.id = id;
     }
 
-    private List<Zabieg> zabiegi = new ArrayList<Zabieg>();
+    private Set<Zabieg> zabiegi = new HashSet<Zabieg>();
 
-    private List<Usluga> uslugi = new ArrayList<Usluga>();
+    private Set<Usluga> uslugi = new HashSet<Usluga>();
 
     private Date data;
 
@@ -45,19 +45,19 @@ public class Wizyta implements Serializable {
         this.lekarz = lekarz;
     }
 
-    public List<Zabieg> getZabiegi() {
+    public Set<Zabieg> getZabiegi() {
         return zabiegi;
     }
 
-    public void setZabiegi(List<Zabieg> zabiegi) {
+    public void setZabiegi(Set<Zabieg> zabiegi) {
         this.zabiegi = zabiegi;
     }
 
-    public List<Usluga> getUslugi() {
+    public Set<Usluga> getUslugi() {
         return uslugi;
     }
 
-    public void setUslugi(List<Usluga> uslugi) {
+    public void setUslugi(Set<Usluga> uslugi) {
         this.uslugi = uslugi;
     }
 

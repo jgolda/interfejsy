@@ -1,3 +1,5 @@
+package model;
+
 import java.io.Serializable;
 
 public class Osoba implements Serializable {
@@ -11,6 +13,8 @@ public class Osoba implements Serializable {
     private String nazwisko;
 
     private String pesel;
+
+    private Adres adres;
 
     public Long getId() {
         return id;
@@ -42,5 +46,13 @@ public class Osoba implements Serializable {
 
     public void setPesel(String pesel) {
         this.pesel = pesel;
+    }
+
+    public Adres getAdres() {
+        return adres;
+    }
+
+    public void setAdres(Adres adres) {
+        this.adres = adres;
     }
 }

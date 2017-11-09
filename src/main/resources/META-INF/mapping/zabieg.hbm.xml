@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Zabieg" table="ZABIEGI">
+        <id name="id" type="java.lang.Long">
+            <column name="ZAB_ID"/>
+            <generator class="native"/>
+        </id>
+        <property name="nrZeba" type="java.lang.String">
+            <column name="ZAB_NR_ZEBA"/>
+        </property>
+        <property name="opis" type="java.lang.String">
+            <column name="ZAB_OPIS"/>
+        </property>
+        <many-to-one name="wizyta"
+                     class="model.Wizyta"
+                     column="ZAB_WIZ_ID"/>
+    </class>
+</hibernate-mapping>
+

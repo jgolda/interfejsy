@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Wizyta" table="WIZYTY">
+        <id name="id" type="java.lang.Long">
+            <column name="WIZ_ID"/>
+            <generator class="native"/>
+        </id>
+        <property name="data" type="java.util.Date">
+            <column name="WIZ_DATA"/>
+        </property>
+        <property name="typ" type="java.lang.String">
+            <column name="WIZ_TYP"/>
+        </property>
+        <many-to-one name="lekarz"
+                     class="model.Lekarz"
+                     column="WIZ_LEK_ID"/>
+        <many-to-one name="pacjent"
+                     class="model.Pacjent"
+                     column="WIZ_PAC_ID"/>
+        <set name="uslugi" lazy="true" inverse="true">
+            <key column="USL_WIZ_ID"/>
+            <one-to-many class="model.Usluga"/>
+        </set>
+        <set name="zabiegi" lazy="true" inverse="true">
+            <key column="ZAB_WIZ_ID"/>
+            <one-to-many class="model.Zabieg"/>
+        </set>
+    </class>
+</hibernate-mapping>
+
+

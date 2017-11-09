@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Adres" table="ADRESY">
+        <id name="id" type="java.lang.Long">
+            <column name="ADR_ID"/>
+            <generator class="native"/>
+        </id>
+        <property name="kod" type="java.lang.String">
+            <column name="ADR_KOD"/>
+        </property>
+        <property name="miejscowosc" type="java.lang.String">
+            <column name="ADR_MIEJSCOWOSC"/>
+        </property>
+        <property name="ulica" type="java.lang.String">
+            <column name="ADR_ULICA"/>
+        </property>
+        <property name="nrDomu" type="java.lang.Integer">
+            <column name="ADR_NR_DOMU"/>
+        </property>
+        <property name="nrMieszkania" type="java.lang.Integer">
+            <column name="ADR_NR_MIESZKANIA"/>
+        </property>
+    </class>
+</hibernate-mapping>
+

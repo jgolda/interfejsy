@@ -1,4 +1,6 @@
-import java.io.Serializable;
+package model;
+
+import java.util.List;
 
 public class Lekarz extends Osoba {
 
@@ -7,6 +9,8 @@ public class Lekarz extends Osoba {
     private String specjalizacja;
 
     private String tytulNauk;
+
+    private List<Wizyta> wizyty;
 
     public String getSpecjalizacja() {
         return specjalizacja;
@@ -22,5 +26,13 @@ public class Lekarz extends Osoba {
 
     public void setTytulNauk(String tytulNauk) {
         this.tytulNauk = tytulNauk;
+    }
+
+    public List<Wizyta> getWizyty() {
+        return wizyty;
+    }
+
+    public void setWizyty(List<Wizyta> wizyty) {
+        this.wizyty = wizyty;
     }
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Usluga" table="USLUGI">
+        <id name="id" type="java.lang.Long">
+            <column name="USL_ID"/>
+            <generator class="native"/>
+        </id>
+        <property name="cena" type="java.lang.Double">
+            <column name="USL_CENA"/>
+        </property>
+        <property name="opis" type="java.lang.String">
+            <column name="USL_OPIS"/>
+        </property>
+        <property name="rabat" type="java.lang.Double">
+            <column name="USL_RABAT"/>
+        </property>
+        <many-to-one name="cennik"
+                     class="model.Cennik"
+                     column="USL_CEN_ID"/>
+        <many-to-one name="wizyta"
+                     class="model.Wizyta"
+                     column="USL_WIZ_ID"/>
+    </class>
+</hibernate-mapping>
