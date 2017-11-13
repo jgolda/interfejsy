@@ -71,6 +71,7 @@ public class InsertTest {
         wz.setZabiegi(new HashSet<>(Arrays.asList(latanie, wiercenie)));
         wz.setData(new Date());
         wz.setLekarz(lekarz);
+        lekarz.setWizyty(new HashSet<>(Collections.singletonList(wz)));
         wz.setPacjent(pacjent);
         wz.setTyp("typ wizyty xD");
         wz.setUslugi(new HashSet<>(Collections.singletonList(usluga)));

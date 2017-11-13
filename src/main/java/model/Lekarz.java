@@ -1,6 +1,7 @@
 package model;
 
 import java.util.List;
+import java.util.Set;
 
 public class Lekarz extends Osoba {
 
@@ -10,7 +11,7 @@ public class Lekarz extends Osoba {
 
     private String tytulNauk;
 
-    private List<Wizyta> wizyty;
+    private Set<Wizyta> wizyty;
 
     public String getSpecjalizacja() {
         return specjalizacja;
@@ -28,11 +29,11 @@ public class Lekarz extends Osoba {
         this.tytulNauk = tytulNauk;
     }
 
-    public List<Wizyta> getWizyty() {
+    public Set<Wizyta> getWizyty() {
         return wizyty;
     }
 
-    public void setWizyty(List<Wizyta> wizyty) {
+    public void setWizyty(Set<Wizyta> wizyty) {
         this.wizyty = wizyty;
     }
 }
