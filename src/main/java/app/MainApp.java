@@ -11,7 +11,7 @@ import org.hibernate.query.Query;
 
 public final class MainApp {
 
-    private static final SessionFactory SESSION_FACTORY = HiberUtil.getSessionFactory(HiberUtil.Mapping.XML);
+    private static final SessionFactory SESSION_FACTORY = HiberUtil.getSessionFactory(HiberUtil.Mapping.ANN);
 
     public static void main(String[] args) {
         try (Session session = SESSION_FACTORY.openSession()) {
@@ -23,7 +23,7 @@ public final class MainApp {
 
             Adres lekarzAdres = new Adres();
             lekarzAdres.setKod("lekarz_kod");
-            lekarzAdres.setMiejscowosc("zadupie dolne");
+            lekarzAdres.setMiejscowosc("wiocha dolna");
             lekarzAdres.setNrDomu(234);
             lekarzAdres.setNrMieszkania(345);
             lekarzAdres.setUlica("duga");
@@ -39,7 +39,7 @@ public final class MainApp {
 
             Adres pacjentAdres = new Adres();
             pacjentAdres.setKod("pacjent_kod");
-            pacjentAdres.setMiejscowosc("zadupie gorne");
+            pacjentAdres.setMiejscowosc("wiocha gorna");
             pacjentAdres.setNrDomu(987);
             pacjentAdres.setNrMieszkania(876);
             pacjentAdres.setUlica("krotka");
@@ -47,14 +47,14 @@ public final class MainApp {
 
             Pacjent pacjent = new Pacjent();
             pacjent.setNrKartyUbezpieczeniowej("nr_karty");
-            pacjent.setImie("marcin");
-            pacjent.setNazwisko("skowronek");
+            pacjent.setImie("janusz");
+            pacjent.setNazwisko("cebula");
             pacjent.setAdres(pacjentAdres);
             session.save(pacjent);
 
             Zabieg wiercenie = new Zabieg();
             wiercenie.setNrZeba("666");
-            wiercenie.setOpis("wiercenie w zebie czarnym jak dupa szatana");
+            wiercenie.setOpis("wiercenie w zebie");
             session.save(wiercenie);
 
             Zabieg latanie = new Zabieg();

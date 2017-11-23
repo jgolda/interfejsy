@@ -1,21 +1,34 @@
 package model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "USLUGI")
 public class Usluga implements Serializable {
 
     private static final long serialVersionUID = -5795062461768031102L;
 
+    @Id
+    @Column(name = "USL_ID")
+    @GeneratedValue
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "USL_CEN_ID")
     private Cennik cennik;
 
+    @ManyToOne
+    @JoinColumn(name = "USL_WIZ_ID")
     private Wizyta wizyta;
 
+    @Column(name = "USL_CENA")
     private Double cena;
 
+    @Column(name = "USL_OPIS")
     private String opis;
 
+    @Column(name = "USL_RABAT")
     private Double rabat;
 
     public Long getId() {

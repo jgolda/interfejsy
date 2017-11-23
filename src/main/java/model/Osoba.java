@@ -1,19 +1,31 @@
 package model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "OSOBY")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Osoba implements Serializable {
 
     private static final long serialVersionUID = 2833828861729461910L;
 
+    @Id
+    @Column(name = "OSO_ID")
+    @GeneratedValue
     private Long id;
 
+    @Column(name = "OSO_IMIE")
     private String imie;
 
+    @Column(name = "OSO_NAZWISKO")
     private String nazwisko;
 
+    @Column(name = "OSO_PESEL")
     private String pesel;
 
+    @OneToOne
+    @JoinColumn(name = "OSO_ADR_ID")
     private Adres adres;
 
     public Long getId() {

@@ -1,16 +1,23 @@
 package model;
 
+import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
+@Entity
+@Table(name = "LEKARZE")
+@PrimaryKeyJoinColumn(name = "LEK_ID")
 public class Lekarz extends Osoba {
 
     private static final long serialVersionUID = -2959770805061923284L;
 
+    @Column(name = "LEK_SPECJALIZACJA")
     private String specjalizacja;
 
+    @Column(name = "LEK_TYTUL_NAUKOWY")
     private String tytulNauk;
 
+    @OneToMany(mappedBy = "lekarz")
     private Set<Wizyta> wizyty;
 
     public String getSpecjalizacja() {

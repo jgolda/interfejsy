@@ -1,17 +1,27 @@
 package model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "ZABIEGI")
 public class Zabieg implements Serializable {
 
     private static final long serialVersionUID = 8945600723324911353L;
 
+    @Id
+    @Column(name = "ZAB_ID")
+    @GeneratedValue
     private Long id;
 
+    @Column(name = "ZAB_NR_ZEBA")
     private String nrZeba;
 
+    @Column(name = "ZAB_OPIS")
     private String opis;
 
+    @ManyToOne
+    @JoinColumn(name = "ZAB_WIZ_ID")
     private Wizyta wizyta;
 
     public Long getId() {

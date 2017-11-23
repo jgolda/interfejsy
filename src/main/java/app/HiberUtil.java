@@ -7,10 +7,7 @@ package app;
 
 import java.io.File;
 
-import model.Adres;
-import model.Osoba;
-import model.Pacjent;
-import model.Wizyta;
+import model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -74,15 +71,16 @@ public final class HiberUtil {
 
     public static SessionFactory getANNSessionFactory() {
         try {
-            Configuration config = new Configuration().configure();
+            Configuration config = new Configuration().configure("META-INF/hibernate.cfg.xml");
 
             config.addAnnotatedClass(Adres.class)
-//                    .addAnnotatedClass(Dzial.class)
-//                    .addAnnotatedClass(Dziecko.class)
-                    .addAnnotatedClass(Wizyta.class)
+                    .addAnnotatedClass(Cennik.class)
+                    .addAnnotatedClass(Lekarz.class)
                     .addAnnotatedClass(Osoba.class)
                     .addAnnotatedClass(Pacjent.class)
-//                    .addAnnotatedClass(Projekt.class)
+                    .addAnnotatedClass(Usluga.class)
+                    .addAnnotatedClass(Wizyta.class)
+                    .addAnnotatedClass(Zabieg.class)
             ;
             SessionFactory sf = config.buildSessionFactory();
 

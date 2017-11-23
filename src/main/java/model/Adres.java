@@ -1,21 +1,32 @@
 package model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "ADRESY")
 public class Adres implements Serializable {
 
     private static final long serialVersionUID = -8234678507231456918L;
 
+    @Id
+    @Column(name = "ADR_ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "ADR_KOD")
     private String kod;
 
+    @Column(name = "ADR_MIEJSCOWOSC")
     private String miejscowosc;
 
+    @Column(name = "ADR_ULICA")
     private String ulica;
 
+    @Column(name = "ADR_NR_DOMU")
     private Integer nrDomu;
 
+    @Column(name = "ADR_NR_MIESZKANIA")
     private Integer nrMieszkania;
 
     public Long getId() {
