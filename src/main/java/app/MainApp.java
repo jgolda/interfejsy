@@ -2,7 +2,6 @@ package app;
 
 import java.util.*;
 
-import com.google.gson.Gson;
 import model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
