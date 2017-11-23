@@ -20,7 +20,8 @@
                      class="model.Adres"
                      cascade="persist"
                      column="OSO_ADR_ID"
-                     unique="true"/>
+                     unique="true"
+                     foreign-key="oso_adr_id_fk"/>
     </class>
 </hibernate-mapping>
 

@@ -83,6 +83,7 @@ public final class HiberUtil {
                     .addAnnotatedClass(Zabieg.class)
             ;
             SessionFactory sf = config.buildSessionFactory();
+            System.out.println("Utworzylem konfig");
 
 //            StandardServiceRegistryBuilder registryBuilder = new StandardServiceRegistryBuilder();
 //            registryBuilder.applySettings(config.getProperties());

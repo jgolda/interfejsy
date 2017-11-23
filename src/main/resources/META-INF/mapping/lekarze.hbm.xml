@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <joined-subclass name="model.Lekarz" table="LEKARZE" extends="model.Osoba">
-        <key column="LEK_ID"/>
+        <key column="LEK_ID" foreign-key="lek_id_oso_id_fk"/>
         <property name="specjalizacja" type="java.lang.String">
             <column name="LEK_SPECJALIZACJA"/>
         </property>
@@ -11,7 +11,7 @@
             <column name="LEK_TYTUL_NAUKOWY"/>
         </property>
         <set name="wizyty" lazy="true" inverse="true">
-            <key column="WIZ_LEK_ID"/>
+            <key column="WIZ_LEK_ID" foreign-key="wiz_lek_id_fk"/>
             <one-to-many class="model.Wizyta"/>
         </set>
     </joined-subclass>

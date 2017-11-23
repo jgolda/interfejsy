@@ -14,7 +14,7 @@
             <column name="CEN_OPIS"/>
         </property>
         <set name="uslugi" lazy="true" inverse="true">
-            <key column="USL_CEN_ID"/>
+            <key column="USL_CEN_ID" foreign-key="usl_cen_id_fk"/>
             <one-to-many class="model.Usluga"/>
         </set>
     </class>

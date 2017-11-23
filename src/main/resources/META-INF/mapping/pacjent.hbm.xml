@@ -3,12 +3,12 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <joined-subclass name="model.Pacjent" table="PACJENCI" extends="model.Osoba">
-        <key column="PAC_ID"/>
+        <key column="PAC_ID" foreign-key="pac_id_oso_id_fk"/>
         <property name="nrKartyUbezpieczeniowej" type="java.lang.String">
             <column name="PAC_NR_KARTY_UBEZP"/>
         </property>
         <set name="wizyty" lazy="true" inverse="true">
-            <key column="WIZ_PAC_ID"/>
+            <key column="WIZ_PAC_ID" foreign-key="wiz_pac_id_fk"/>
             <one-to-many class="model.Wizyta"/>
         </set>
     </joined-subclass>

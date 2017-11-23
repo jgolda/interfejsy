@@ -20,11 +20,11 @@
                      class="model.Pacjent"
                      column="WIZ_PAC_ID"/>
         <set name="uslugi" lazy="true" inverse="true">
-            <key column="USL_WIZ_ID"/>
+            <key column="USL_WIZ_ID" foreign-key="usl_wiz_id_fk"/>
             <one-to-many class="model.Usluga"/>
         </set>
         <set name="zabiegi" lazy="true" inverse="true">
-            <key column="ZAB_WIZ_ID"/>
+            <key column="ZAB_WIZ_ID" foreign-key="zab_wiz_id_fk"/>
             <one-to-many class="model.Zabieg"/>
         </set>
     </class>
