@@ -25,7 +25,7 @@ public class Osoba implements Serializable {
     private String pesel;
 
     @OneToOne
-    @JoinColumn(name = "OSO_ADR_ID")
+    @JoinColumn(name = "OSO_ADR_ID", foreignKey = @ForeignKey(name = "oso_adr_id_fk"))
     private Adres adres;
 
     public Long getId() {

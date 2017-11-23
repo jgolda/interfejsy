@@ -16,11 +16,11 @@ public class Wizyta implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "WIZ_PAC_ID")
+    @JoinColumn(name = "WIZ_PAC_ID", foreignKey = @ForeignKey(name = "wiz_pac_id_fk"))
     private Pacjent pacjent;
 
     @ManyToOne
-    @JoinColumn(name = "WIZ_LEK_ID")
+    @JoinColumn(name = "WIZ_LEK_ID", foreignKey = @ForeignKey(name = "wiz_lek_id_fk"))
     private Lekarz lekarz;
 
     @OneToMany(mappedBy = "wizyta")

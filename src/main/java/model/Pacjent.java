@@ -7,7 +7,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "PACJENCI")
-@PrimaryKeyJoinColumn(name = "PAC_ID")
+@PrimaryKeyJoinColumn(name = "PAC_ID", foreignKey = @ForeignKey(name = "pac_id_oso_id_fk"))
 public class Pacjent extends Osoba {
 
     private static final long serialVersionUID = 6164980147741689752L;

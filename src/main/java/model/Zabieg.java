@@ -21,7 +21,7 @@ public class Zabieg implements Serializable {
     private String opis;
 
     @ManyToOne
-    @JoinColumn(name = "ZAB_WIZ_ID")
+    @JoinColumn(name = "ZAB_WIZ_ID", foreignKey = @ForeignKey(name = "zab_wiz_id_fk"))
     private Wizyta wizyta;
 
     public Long getId() {

@@ -15,11 +15,11 @@ public class Usluga implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "USL_CEN_ID")
+    @JoinColumn(name = "USL_CEN_ID", foreignKey = @ForeignKey(name = "usl_cen_id_fk"))
     private Cennik cennik;
 
     @ManyToOne
-    @JoinColumn(name = "USL_WIZ_ID")
+    @JoinColumn(name = "USL_WIZ_ID", foreignKey = @ForeignKey(name = "usl_wiz_id_fk"))
     private Wizyta wizyta;
 
     @Column(name = "USL_CENA")
