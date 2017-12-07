@@ -146,6 +146,10 @@ public final class MainApp {
             wz.setUslugi(new HashSet<>(Arrays.asList(usluga, usluga4, usluga8)));
             session.save(wz);
 
+            usluga.setWizyta(wz);
+            usluga4.setWizyta(wz);
+            usluga8.setWizyta(wz);
+
             Wizyta wz2 = new Wizyta();
             wz2.setZabiegi(new HashSet<>(Arrays.asList(latanie, wiercenie)));
             wz2.setData(new Date());
@@ -155,6 +159,8 @@ public final class MainApp {
             wz2.setUslugi(new HashSet<>(Arrays.asList(usluga2)));
             session.save(wz2);
 
+            usluga2.setWizyta(wz2);
+
             Wizyta wz3 = new Wizyta();
             wz3.setZabiegi(new HashSet<>(Arrays.asList(latanie, wiercenie)));
             wz3.setData(new Date());
@@ -163,6 +169,20 @@ public final class MainApp {
             wz3.setTyp("typ wizyty xD");
             wz3.setUslugi(new HashSet<>(Arrays.asList(usluga3, usluga5, usluga6, usluga7)));
             session.save(wz3);
+
+            usluga3.setWizyta(wz3);
+            usluga5.setWizyta(wz3);
+            usluga6.setWizyta(wz3);
+            usluga7.setWizyta(wz3);
+
+            session.merge(usluga);
+            session.merge(usluga2);
+            session.merge(usluga3);
+            session.merge(usluga4);
+            session.merge(usluga5);
+            session.merge(usluga6);
+            session.merge(usluga7);
+            session.merge(usluga8);
             tx.commit();
         }
         showAll();

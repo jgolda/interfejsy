@@ -91,4 +91,9 @@ public class Wizyta implements Serializable {
     public void setTyp(String typ) {
         this.typ = typ;
     }
+
+    @Override
+    public String toString() {
+        return "" + id;
+    }
 }
